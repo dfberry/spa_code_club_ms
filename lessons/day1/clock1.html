@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<!-- canvas is the visual drawing surface -->
+<canvas id="canvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+
+<!-- script is the code -->
+<script>
+
+// get canvas
+var canvas = document.getElementById("canvas");
+
+// set canvas type to 2 dimensional
+var ctx = canvas.getContext("2d"); 
+
+// calls the showTime function every second
+setInterval(showTime, 1000);
+
+// change '3' seconds into '03'  
+function pad(x){
+  if(x.toString().length<2){
+    return "0" + x;
+  } else {
+    return x;
+  }
+}
+
+// clear canvas and create/display new time 
+function showTime(){
+
+    // get current time
+    var now = new Date();
+
+    // break time into parts
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+
+    // build time for digital clock format
+    var display = pad(hour) + ":" + pad(minute) + ":" + pad(second);
+
+    // look and feel
+    ctx.font = "70px Arial";
+    ctx.fillStyle = "Black";
+    ctx.textAlign = "center";
+
+    // clear preious time
+    ctx.clearRect(0,0,canvas.width, canvas.height);
+
+    // show new time
+    ctx.fillText(display,canvas.width/2, canvas.height/2);
+}
+</script>
+
+</body>
+</html>

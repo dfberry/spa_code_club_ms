@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<!-- canvas is the visual drawing surface -->
+<canvas id="canvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
+
+<!-- script is the code -->
+<script>
+
+// get canvas
+var canvas = document.getElementById("canvas");
+
+// set canvas type to 2 dimensional
+var ctx = canvas.getContext("2d"); 
+
+// look and feel
+ctx.font = "30px Arial";
+ctx.fillStyle = "Black";
+ctx.textAlign = "center";
+
+// show 
+// TBD: change the string to your name
+ctx.fillText("Code Club Rocks!",canvas.width/2, canvas.height/2);
+
+</script>
+
+</body>
+</html>
